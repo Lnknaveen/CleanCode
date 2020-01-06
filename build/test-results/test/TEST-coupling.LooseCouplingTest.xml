@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="coupling.LooseCouplingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-06T08:32:32" hostname="nb0625.corp.affinitas.de" time="0.003">
+  <properties/>
+  <testcase name="say" classname="coupling.LooseCouplingTest" time="0.003"/>
+  <system-out><![CDATA[Hello
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
