@@ -8,22 +8,10 @@ public class CoffeeMakerTest {
 
     @Test
     public void makeCoffee() {
-        CoffeeMaker coffeeMaker = new CoffeeMaker(new CoffeeMachine() {
-            @Override
-            public boolean makeCoffee() {
-                return false;
-            }
-        });
-
+        CoffeeMaker coffeeMaker = new CoffeeMaker(new BasicCoffee());
         assert !coffeeMaker.makeCoffee();
 
-        coffeeMaker = new CoffeeMaker(new CoffeeMachine() {
-            @Override
-            public boolean makeCoffee() {
-                return true;
-            }
-        });
-
+        coffeeMaker = new CoffeeMaker(new PremiumCoffee());
         assert coffeeMaker.makeCoffee();
     }
 }

@@ -15,3 +15,17 @@ public class CoffeeMaker {
 interface CoffeeMachine {
     boolean makeCoffee();
 }
+
+class BasicCoffee implements CoffeeMachine {
+    @Override
+    public boolean makeCoffee() {
+        return false;
+    }
+}
+
+class PremiumCoffee implements CoffeeMachine {
+    @Override
+    public boolean makeCoffee() {
+        return true;
+    }
+}

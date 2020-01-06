@@ -71,4 +71,6 @@
 
 ### Open Closed Principle (OCP)
 - You should be able to extend a classes behaviour without modifying it.
- 
+
+### Liskov Substitution Principle (LSP)
+- Derived classes must be substitutable for their base classes.

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="classdesign.lcp.LoggerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-01-06T19:20:38" hostname="NB0625.local" time="0.003">
+  <properties/>
+  <testcase name="ConsoleLogger" classname="classdesign.lcp.LoggerTest" time="0.003"/>
+  <testcase name="VoidLogger" classname="classdesign.lcp.LoggerTest" time="0.0"/>
+  <system-out><![CDATA[Debug
+Info
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
