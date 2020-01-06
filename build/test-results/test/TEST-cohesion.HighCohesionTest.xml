@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="cohesion.HighCohesionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-06T08:56:59" hostname="nb0625.corp.affinitas.de" time="0.003">
-  <properties/>
-  <testcase name="add" classname="cohesion.HighCohesionTest" time="0.003"/>
-  <system-out><![CDATA[30
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
