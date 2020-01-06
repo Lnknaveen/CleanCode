@@ -38,3 +38,34 @@
 ### Mid-sized components
 - Break your system down into components that are of a size you can grasp within your mind so that you can predict consequences of changes easily.
     - Dependencies, control flow
+    
+## Smells
+### Rigity
+- The software is difficult to change. A small change causes a cascade of subsequent changes.
+
+### Fragility
+- The software breaks in many places due to a single change.
+
+### Immobility
+- You cannot reuse parts of the code in other projects because of involved risks and high effort.
+
+### Viscosity of Design
+- Taking a shortcut and introducing technical debt requires less effort than doing it right.
+
+### Viscosity of Environment
+- Building, testing and other tasks take a long time. Therefore, these activities are not executed properly by everyone and technical debt is introduced.
+
+### Needless Complexity
+- The design contains elements that are currently not useful. The added complexity makes the code harder to comprehend. Therefore, extending and changing the code results in higher effort than necessary.
+
+### Needless Repetition
+- Code contains exact code duplications or design duplicates (doing the same thing in a different way)
+- Making a change to a duplicated piece of code is more expensive and more error-prone because the change has to be made is several places with the risk that one place is not changed accordingly.
+
+### Opacity
+- The code is hard to understand. Therefore, any change takes additional time to first re-engineer the the code and is more likely to result in defects due to not understanding the side effects.
+
+## Class Design
+### Single Responsibility Principle (SRP)
+- A class should have one, and only one, reason to change.
+ 

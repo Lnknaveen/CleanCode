@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="classdesign.srp.SingleResponsibilityOneTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-06T18:58:48" hostname="NB0625.local" time="0.003">
+  <properties/>
+  <testcase name="update" classname="classdesign.srp.SingleResponsibilityOneTest" time="0.003"/>
+  <system-out><![CDATA[updated!
+updated!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
