@@ -26,3 +26,6 @@
 - Cohesion is the degree to which elements of whole belong together.
 - Methods and fields in a single class and classes of a component should have high cohesion.
 - Easy to understand code structure and design.
+
+### Change is local
+- When a software system has to be maintained, extended and changed for a long time, keep change local reduces involved costs and risks.
