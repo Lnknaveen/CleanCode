@@ -1,8 +1,6 @@
-package cohesion;
+package principles.cohesion;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class HighCohesionTest {
 

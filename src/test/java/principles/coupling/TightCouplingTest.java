@@ -1,8 +1,6 @@
-package coupling;
+package principles.coupling;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class TightCouplingTest {
 

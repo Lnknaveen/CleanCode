@@ -1,4 +1,4 @@
-package cohesion;
+package principles.cohesion;
 
 public class HighCohesion {
     public int add(int i, int j) {

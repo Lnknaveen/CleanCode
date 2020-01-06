@@ -1,4 +1,4 @@
-package coupling;
+package principles.coupling;
 
 public class TightCoupling {
     private TightHello hello;
