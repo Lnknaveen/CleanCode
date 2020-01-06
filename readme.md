@@ -77,3 +77,6 @@
 
 ### Dependency Inversion Principle (DIP)
 - Depend on abstractions, not on concretes.
+
+### Interface Segregation Principle (ISP)
+- Make fine grained interfaces that are client specific.
