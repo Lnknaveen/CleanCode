@@ -74,3 +74,6 @@
 
 ### Liskov Substitution Principle (LSP)
 - Derived classes must be substitutable for their base classes.
+
+### Dependency Inversion Principle (DIP)
+- Depend on abstractions, not on concretes.
