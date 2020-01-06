@@ -29,3 +29,12 @@
 
 ### Change is local
 - When a software system has to be maintained, extended and changed for a long time, keep change local reduces involved costs and risks.
+
+### It is easy to remove
+- We normally build software by adding, extending or chaining features.
+    - However, removing elements is important so that the overall design can be kept as simple as possible.
+    - When block gets too complicated, it has to be removed and replaced with one or more simpler blocks.
+ 
+### Mid-sized components
+- Break your system down into components that are of a size you can grasp within your mind so that you can predict consequences of changes easily.
+    - Dependencies, control flow
