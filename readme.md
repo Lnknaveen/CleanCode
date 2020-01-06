@@ -21,4 +21,8 @@
 - Two classes are coupled when at least one of them uses the other.
 - The less these items know about each other, the looser they are coupled.
 - A component that is only loosely coupled to its environment can be more easily changed or replaced than a strongly coupled component.
- 
+
+### High Cohesion
+- Cohesion is the degree to which elements of whole belong together.
+- Methods and fields in a single class and classes of a component should have high cohesion.
+- Easy to understand code structure and design.
