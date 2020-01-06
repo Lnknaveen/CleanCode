@@ -68,4 +68,7 @@
 ## Class Design
 ### Single Responsibility Principle (SRP)
 - A class should have one, and only one, reason to change.
+
+### Open Closed Principle (OCP)
+- You should be able to extend a classes behaviour without modifying it.
  
