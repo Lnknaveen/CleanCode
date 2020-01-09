@@ -43,7 +43,7 @@
 - Break your system down into components that are of a size you can grasp within your mind so that you can predict consequences of changes easily.
     - Dependencies, control flow
     
-## --- Smells
+## --- Smells ---
 ### --- Rigity ---
 - The software is difficult to change. A small change causes a cascade of subsequent changes.
 
@@ -218,3 +218,238 @@
 - Aka Law of Demeter, writing shy code.
     - Module should not have the knowledge on the inner details of the objects it manipulates.
 - A module should know only its direct dependencies.
+
+## Naming
+### Choose Descriptive / Unambiguous Names
+- Names have to reflect what a variable, field, property stands for. Names have to be precise.
+
+### Choose Names at Appropriate Level of Abstraction
+- Choose names that reflect the level of abstraction of the class or method you are working in.
+
+### Name Interfaces After Functionality They Abstract
+- The name of an interface should be derived from its usage by the client.
+
+### Name Classes After How They Implement Interfaces
+- The name of a class should reflect how it fulfils the functionality provided by its interface(s), such as MemoryStream : IStream 
+
+### Name Methods After What They Do
+- The name of a method should describe what is done, not how it is done.
+
+### Use Long Names for Long Scopes
+- fields -> parameters  -> locals -> loop variables
+- long                  ->                  short
+
+### Names Describe Side Effects
+- Names have to reflect the entire functionality.
+
+### Standard Nomenclature Where Possible
+- Don’t invent your own language when there is a standard.
+
+### --- Encodings in Names ---
+- No prefixes, no type/scope information
+
+## Understandability
+### Consistency
+- If you do something a certain way, do all similar things in the same way
+    - Same variable name for same concepts, same naming pattern for corresponding concepts.
+    
+### Use Explanatory Variables
+- Use locals to give steps in algorithms names.
+
+### Encapsulate Boundary Conditions
+- Boundary conditions are hard to keep track of. Put the processing for them in one place, 
+    - e.g. nextLevel = level + 1;
+    
+### Prefer Dedicated Value Objects to Primitive Types
+- Instead of passing primitive types like strings and integers, use dedicated primitive types 
+    - e.g. URI instead of string
+
+### --- Poorly Written Comment ---
+- Comment does not add any value (redundant to code), is not well formed, not correct grammar/spelling.
+    
+### --- Obscured Intent ---
+- Too dense algorithms that lose all expressiveness.
+
+### --- Obvious Behaviour Is Unimplemented ---
+- Violations of “the Principle of Least Astonishment”. What you expect is what you get.
+    - Component should behave as it it expected by user.    
+    
+### --- Hidden Logical Dependency ---
+- A method can only work when invoked correctly depending on something else in the same class.
+    - e.g. a DeleteItem method must only be called if a CanDeleteItem method returned true, otherwise it will fail.
+
+## Methods
+### Methods should do one thing
+- Loops, exception handling, ... encapsulate in sub-methods.
+
+### Methods should descend 1 level of abstraction
+- The statements within a method should all be written at same level of abstraction, which should be one level below the operation described by the name of the function.
+
+### --- Method with Too Many Arguments –--
+- Prefer fewer arguments. Maybe functionality can be out sourced to a dedicated class that holds the information in fields.
+
+### --- Method with Out/Ref Arguments ---
+- Prevent usage.
+- Return complex object holding all values.
+- split into several methods.
+- If your method must change the state of something, have it change the state of the object it called on.
+
+### --- Selector / Flag Arguments ---
+- public int Foo(bool flag)
+- Split method into several independent methods that can be called from the client without the flag.
+
+### --- Inappropriate Static ---
+- Static method that should be an instance method. 
+
+## Source code structure
+### Vertical separation
+- Variables and methods should be defined close to where they are used.
+- Local variables should be declared just above their first usage and should have a small vertical scope.
+
+### Nesting
+- Nested code should be more specific or handle less probable scenarios then unnested code.
+
+### Structure code into namespace by feature
+- keep everything belonging to the same feature together.
+- Don't use namespaces communicating layers.
+- A feature may use another feature; a business feature may use a code feature like logging.
+
+## Conditionals
+### Encapsulate conditions
+- if(this.shouldBeDeleted(timer)) is preferable to
+    - if(timer.hasExpired && timer.IsRecurrent)
+
+### Positive conditionals
+- Positive conditionals are easier to read than negative conditionals.
+
+## Useless stuff
+### --- Dead comment, Code ---
+- Delete unused things, You can find them in your version control system.
+
+### --- clutter ---
+- Code that is not dead but does not add any functionality.
+
+### --- Inappropriate Information –--
+- Comment holding information better held in a different system.
+    - Product backlog, source control.
+    - Use code comments for technical notes only.
+    
+## Maintainability Killers
+### --- Duplication ---
+- Eliminate duplication. Violation of the "Don’t repeat yourself" (DRY) principle.
+
+### --- Magic Numbers / Strings ---
+- Replace Magic Numbers and Strings with named constants to give them a meaningful name when meaning cannot be derived from the value itself.
+
+### --- Enums (Persistent or Defining Behaviour) ---
+- Use reference codes instead of enums if they have to be persisted. Use polymorphism instead of enums if they define behaviour.
+
+### --- Tangles ---
+- The class dependencies should not be tangled.
+-  There should be no cyclic dependency chains.
+
+## Exception handling
+### Catch Specific Exceptions
+- Catch exceptions as specific as possible. Catch only the exceptions for which you can react in a meaningful manner.
+
+### Catch where you can react in a Meaningful way.
+- Only catch exceptions when you can react in a meaningful way.
+    - Otherwise, let someone up in the call stack react to it.
+
+### Use Exceptions instead of Return Codes or null
+- In an exceptional case, throw an exception when your method can't do its job.
+    - Don't accept or return null.
+    - Don't return error codes.
+
+### Fail fast
+- Exceptions should be thrown as early as possible after detecting an exceptional case.
+- THis helps to pinpoint the exact location of the problem by looking at the stack trace of the exception.
+
+### --- Using exceptions for control flow ---
+- Using exceptions for  control flow
+    - has bad performance, is hard to understand and results in very hard handling of real exceptional cases.
+
+### --- Swallowing Exceptions ---
+-  Exceptions can be swallowed only if the exceptional case is completely resolved after leaving the catch block.
+    - Otherwise, the system is left in an inconsistent state.
+
+## From Legacy code to clean code
+### Always have a running System
+- Change your system in small steps, from a running state to a running state.
+
+#### Identify Features
+- Identify the existing features in your code and prioritise them according to how relevant they are for future development
+    -  Likelihood and risk of change
+    
+#### Introduce boundary interfaces for testability
+- Refactor the boundaries of your system to interfaces so that can simulate the environment with test doubles 
+    - fakes, mocks, stubs
+    
+#### Write feature acceptance tests
+- Cover a feature with acceptance tests to establish a safety net for refactoring.
+
+#### Identify components
+- Within a  feature, identify the components used to provide the feature.
+- Prioritise components according to relevance for future development
+    - Likelihood and risk of change.
+
+#### Refactor interfaces between components
+- Refactor (or introduce) interfaces between components so that each component can be tested in isolation of its environment.
+
+#### Write component Acceptance tests
+- cover features provided by a component with acceptance tests.
+
+#### Decide for each component.
+- Refactor, Re-engineer, Keep
+    - Decide for each component whether to refactor, re-engineer or keep it.
+
+##### Refactor component
+- Redesign classes within the component and refactor step by step (See Refactoring Patters)
+- Add unit tests for each newly designed class.
+
+##### Re-engineer component
+- Use ATDD and TDD to re-implement the component.
+
+##### Keep Component
+- If you anticipate only few future changes to component and the component had few defects in the past, consider keeping it as it is.
+
+## Refactoring
+### Reconcile Differences - Unify Similar Code
+- Change both pieces of code stepwise until they are identical. Then extract.
+
+### Isolate Change
+- First, isolate the code to be refactored from the rest. 
+    - Then refactor. Finally, undo isolation.
+
+### Migrate Data
+- Move from one representation to another by temporary duplication of data structure. 
+
+### Temporary Parallel Implementation
+- Refactor by introducing a temporary parallel implementation of an algorithm.
+- Switch one caller after the other.
+- Remove old solution when no longer needed.
+- This way you can refactor with only one red test at at time.
+
+### Demilitarized Zone for Components
+- Introduce an internal component boundary and push everything unwanted outside of the internal boundary into the demilitarized zone between component interface and internal boundary.
+- Then refactor the component interface to match the internal boundary and eliminate the demilitarized zone.
+
+### Refactor before adding Functionality
+- Refactor the existing code before adding new functionality in a way so that the change can easily be made.
+
+### Small Refactorings
+- Only refactor in small steps with working code in-between so that you can keep all loose ends in your head. Otherwise, defects sneak in.
+
+## Terms
+### DRY – don’t repeat yourself
+### KISS – keep it simple stupid
+### YAGNI – You Ain’t Gonna Need It
+### SoC – separation of concerns
+### CQS – command query separation
+### Law of Demeter
+### Principle of Least Astonishment
+### Information Hiding and Encapsulation
+### API Development Principles
+### Contradiction between SOLID and YAGNI
+### Contradiction between OCP and YAGNI
+### What are Architecture and Design
