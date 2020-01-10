@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="classdesign.dip.ConcatenateTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-06T19:40:29" hostname="NB0625.local" time="0.003">
-  <properties/>
-  <testcase name="concatenate" classname="classdesign.dip.ConcatenateTest" time="0.003"/>
-  <system-out><![CDATA[STR 1 
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
